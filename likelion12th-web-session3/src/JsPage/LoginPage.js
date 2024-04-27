@@ -1,7 +1,8 @@
-import { default as React, default as React, useState } from 'react';
+import React, { useState } from 'react';
+
 import '../App.css';
 import '../App.js';
-import "./Login.css";
+import "../Login.css";
 
 export const UserInfo = {
     id: "dbalsrl",

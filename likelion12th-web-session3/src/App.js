@@ -4,6 +4,7 @@ import './App.css';
 import AboutMe from './JsPage/about';
 import Education from './JsPage/education';
 import Last from './JsPage/Last';
+import LoginPage from './JsPage/LoginPage';
 import Page1 from './JsPage/Page1';
 import Page2 from './JsPage/Page2';
 import Page3 from './JsPage/Page3';
@@ -42,7 +43,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
+        <LoginPage />
         <Menu />
         <Routes>
           <Route path="/about" element={<AboutMe />} />
