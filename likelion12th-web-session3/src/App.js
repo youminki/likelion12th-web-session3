@@ -42,6 +42,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <LoginPage />
         <Menu />
         <Routes>
           <Route path="/about" element={<AboutMe />} />
