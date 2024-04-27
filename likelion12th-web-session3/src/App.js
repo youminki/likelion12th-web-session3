@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import './App.css';
 import AboutMe from './JsPage/about';
@@ -12,43 +12,43 @@ import Page5 from './JsPage/Page5';
 import "./Login.css";
 
 export const UserInfo = {
-    id: "dbalsrl",
-    password: "7648",
+  id: "dbalsrl",
+  password: "7648",
 };
 
 const LoginPage = ({ onLogin }) => {
-    const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
 
-    const IdHandler = (event) => {
-        setId(event.currentTarget.value);
+  const IdHandler = (event) => {
+    setId(event.currentTarget.value);
+  }
+
+  const PasswordHandler = (event) => {
+    setPassword(event.currentTarget.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (id === UserInfo.id && password === UserInfo.password) {
+      onLogin(true);
+    } else {
+      alert('로그인에 실패하셨습니다.');
     }
+  }
 
-    const PasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (id === UserInfo.id && password === UserInfo.password) {
-            onLogin(true);
-        } else {
-            alert('로그인에 실패하셨습니다.');
-        }
-    }
-
-    return (
-        <div className="wrapper_box">
-            <h2>LOG IN</h2>
-            <form className="login_form" onSubmit={handleSubmit}>
-                <input type="text" className="login_input" placeholder="ID" value={id} onChange={IdHandler}/>
-                <input type="password" className="login_input" placeholder="Password" value={password} onChange={PasswordHandler}/>
-                <button type="submit" className="login_btn">
-                    Login
-                </button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="wrapper_box">
+      <h2>LOG IN</h2>
+      <form className="login_form" onSubmit={handleSubmit}>
+        <input type="text" className="login_input" placeholder="ID" value={id} onChange={IdHandler} />
+        <input type="password" className="login_input" placeholder="Password" value={password} onChange={PasswordHandler} />
+        <button type="submit" className="login_btn">
+          Login
+        </button>
+      </form>
+    </div>
+  );
 };
 
 const Menu = () => (
@@ -68,12 +68,12 @@ const ClickButton = () => (
   <div id="clickButton">
     <div id="clickButton1">
       <a href="https://github.com/youminki">
-        <img src="../img/github_log.jpg" width="50%" />
+        <img src="../img/github_log.jpg" width="50%" alt="Github Logo" />
       </a>
     </div>
     <div id="clickButton2">
       <a href="https://dbalsrl7648.tistory.com/">
-        <img src="../img/Tistory_logo.png" width="50%" />
+        <img src="../img/Tistory_logo.png" width="50%" alt="Tistory Logo" />
       </a>
     </div>
   </div>
@@ -81,14 +81,30 @@ const ClickButton = () => (
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
 
   const handleLogin = (loginStatus) => {
     setIsLoggedIn(loginStatus);
   }
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  }
+
   return (
     <Router>
-      <div className="App">
+      <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+        <button onClick={toggleDarkMode} className="BackgroundMode">
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
         {!isLoggedIn ? <LoginPage onLogin={handleLogin} /> : (
           <>
             <Menu />

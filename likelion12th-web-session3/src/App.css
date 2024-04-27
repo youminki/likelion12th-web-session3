@@ -142,3 +142,48 @@ h1 {
 }
 
 
+/* Dark Mode CSS */
+
+body.dark-mode {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+.dark-mode .aboutMe {
+    background-color: #363636;
+    border-color: #ffffff;
+}
+
+.dark-mode .login_form {
+    color: #ffffff;
+}
+
+.dark-mode .login_input {
+    background-color: #363636;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.dark-mode .login_btn {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode #menu a {
+    color: #ffffff;
+}
+
+.dark-mode #clickButton img {
+    filter: invert(1);
+}
+.BackgroundMode{
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #ff0a6c;
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
