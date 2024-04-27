@@ -43,10 +43,7 @@ function App() {
   return (
     <div className="App">
       <Menu />
-      <h1>멋쟁이사자 자기소개서</h1>
-      <p>1. 저희 멋쟁이사자처럼 12기에 지원해 주심에 감사드리며, 지원자분의 지원 동기를 올해의 목표와 연관 지어 서술해 주세요.</p>
       <AboutMe />
-      <h1>멋쟁이사자 자기소개서</h1>
       <Page1 />
       <Page2 />
       <Page3 />
