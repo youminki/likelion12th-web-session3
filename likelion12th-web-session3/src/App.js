@@ -31,6 +31,7 @@ const LoginPage = ({ onLogin }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (id === UserInfo.id && password === UserInfo.password) {
+      localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태를 localStorage에 저장합니다.
       onLogin(true);
     } else {
       alert('로그인에 실패하셨습니다.');
@@ -80,7 +81,7 @@ const ClickButton = () => (
 );
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true'); // 초기 상태를 localStorage에서 가져옵니다.
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
