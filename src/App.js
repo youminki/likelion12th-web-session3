@@ -21,16 +21,16 @@ const LoginPage = ({ onLogin }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
-  const IdHandler = (event) => {
-    setId(event.currentTarget.value);
+  const IdHandler = (e) => {
+    setId(e.currentTarget.value);
   }
 
-  const PasswordHandler = (event) => {
-    setPassword(event.currentTarget.value);
+  const PasswordHandler = (e) => {
+    setPassword(e.currentTarget.value);
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preDefault();
     if (id === UserInfo.id && password === UserInfo.password) {
       onLogin(true);
     } else {
