@@ -36,7 +36,7 @@ const LoginPage = ({ onLogin }) => {
             <form className="login_form" onSubmit={handleSubmit}>
                 <input type="text" className="login_input" placeholder="ID" value={id} onChange={IdHandler} />
                 <input type="password" className="login_input" placeholder="Password" value={password} onChange={PasswordHandler} />
-                <button type="submit" className="login_btn">
+                <button className="login_btn">
                     Login
                 </button>
             </form>
