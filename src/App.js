@@ -9,6 +9,7 @@ import Page2 from './JsPage/Page2';
 import Page3 from './JsPage/Page3';
 import Page4 from './JsPage/Page4';
 import Page5 from './JsPage/Page5';
+import Sidebar from './JsPage/Sidebar';
 import "./Login.css";
 
 export const UserInfo = {
@@ -117,6 +118,7 @@ function App() {
               <Route path="/page5" element={<Page5 />} />
               <Route path="/last" element={<Last />} />
               <Route path="/education" element={<Education />} />
+              <Route path="/sidebar" element={<Sidebar />} />
             </Routes>
             <ClickButton />
           </>
